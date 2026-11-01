@@ -25,7 +25,7 @@
 
 ### Working against the backend before it exists
 
-The backend is a separate service, and its stack is still undecided (see [ADR-004](../decisions/ADR-004-backend-stack.md)). Frontend work **never waits** on the backend:
+The backend is a separate service (FastAPI on PostgreSQL, in [haneefojay/amanah-api](https://github.com/haneefojay/amanah-api); see [ADR-004](../decisions/ADR-004-backend-stack.md)). Frontend work **never waits** on the backend:
 
 1. Define or extend the request and response schema in `src/lib/api/schemas.ts` (Zod).
 2. Add an MSW handler in `src/mocks/handlers.ts` that honours the schema, including error cases.

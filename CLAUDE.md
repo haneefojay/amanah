@@ -13,12 +13,13 @@ Amanah is a transparent Islamic donation platform (general donations only, never
 
 ## Repository
 
-- Frontend: **https://github.com/haneefojay/amanah-frontend** (default branch `main`).
+- Frontend (this repo): **https://github.com/haneefojay/amanah** (default branch `main`; renamed from `amanah-frontend`).
+- Backend: **https://github.com/haneefojay/amanah-api** (FastAPI, default branch `main`). It has its own `CLAUDE.md`, `AGENTS.md`, roadmap index and ADRs. The backend roadmap and the status of `B…` items live there; the `B…` rows here are a mirror. `docs/amanah-mvp-spec.md` is identical in both repositories: change both together.
 
 ## Current architecture (as of 2026-10-18)
 
 - **This repository is the frontend:** Next.js 16.4 App Router, TypeScript 5.9 strict, Tailwind CSS v4, **PWA via Serwist** (`@serwist/turbopack`), TanStack Query, react-hook-form with Zod, **shadcn/ui components** in `src/components/ui` (ADR-009). See ADR-001, ADR-002, ADR-006 and ADR-009. Design reference: `docs/design-system.md`; component showcase at `/dev/ui` (development only).
-- **The backend is a separate service. Its stack is FastAPI on PostgreSQL, in its own repository** (ADR-004, Accepted 2026-11-01). Don't build backend logic in Next.js route handlers or server actions. The owner explicitly rejected Next.js as the backend.
+- **The backend is a separate service: FastAPI on PostgreSQL, in its own repository** (ADR-004, Accepted 2026-11-01). Auth is hand-written with server-side sessions in an httpOnly cookie (ADR-011); hosting starts on Railway and moves to a VPS later (ADR-012); files are in MinIO (ADR-013). The cookie needs the frontend and API on one registrable domain, or a `/api/*` rewrite proxy (ADR-011); settle this before F5.1 integration. Don't build backend logic in Next.js route handlers or server actions. The owner explicitly rejected Next.js as the backend.
 - Until the backend exists, build against the **MSW mock API** (`src/mocks/handlers.ts`, served by `npm run mock:api` on port 4000). Contract schemas are in `src/lib/api/schemas.ts` (ADR-003).
 - `cacheComponents` is **off** because it's incompatible with Serwist (ADR-002).
 - **Fonts (ADR-007):** Schibsted Grotesk is self-hosted with `next/font`. Reem Kufi is subset to the word أمانة only, so any new Arabic text needs a new subset. **Hosting (ADR-008):** Vercel; `main` deploys to production and each PR gets a preview.
@@ -54,6 +55,6 @@ Amanah is a transparent Islamic donation platform (general donations only, never
 
 ## Open items awaiting the owner
 
-- Backend auth, hosting and storage choices; create the backend repository; spec decisions D8, D9 and D11; the convention date; the pilot organisation.
+- Spec decisions D8, D9 and D11; the convention date; the pilot organisation.
 - Connect the GitHub repository to Vercel (owner, F0.6).
-- First push to `haneefojay/amanah-frontend` so CI (F0.5) runs.
+- First push to `haneefojay/amanah` so CI (F0.5) runs.
