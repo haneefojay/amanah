@@ -1,7 +1,7 @@
 # Landing page design
 
 - **Status:** The modern redesign was approved by the project owner on 2026-10-18 and replaces the first approved design ("the open ledger", in git history before this change).
-- **Canvas (live, editable):** a private design canvas. Boards "Modern: desktop" and "Modern: mobile (390px)". It's private: the owner shares it from the canvas's Share menu.
+- **Canvas (live, editable):** https://claude.ai/artifact/FCJs8QR2Pp9VkjWsyBR3Nt. Boards "Modern: desktop" and "Modern: mobile (390px)". It's private: the owner shares it from the canvas's Share menu.
 - **Source snapshot:** [`landing-page.dc.html`](./landing-page.dc.html), the "Modern: desktop" board at approval time. The canvas is the source of truth if the two differ.
 - **Roadmap:** F2.6, the public landing page.
 

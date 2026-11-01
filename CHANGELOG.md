@@ -21,7 +21,7 @@ Sections per release: **Added**, **Changed**, **Fixed**, **Removed**, **Security
 
 ### Docs
 
-- **Backend repository** `haneefojay/amanah-api` created with the spec copy, backend roadmap, status index, ADRs and agent guides. This repository now points to it: `BACKEND_ROADMAP.md` is a pointer, `B…` rows in the index are a mirror, and `PROJECT.md`, `README.md`, `PROJECT_MEMORY.md`, `AGENTS.md`, the `amanah` skill and `/phase` mention it. The repository was renamed from `amanah-frontend` to `amanah`.
+- **Backend repository** `haneefojay/amanah-api` created with the spec copy, backend roadmap, status index, ADRs and agent guides. This repository now points to it: `BACKEND_ROADMAP.md` is a pointer, `B…` rows in the index are a mirror, and `PROJECT.md`, `README.md`, `CLAUDE.md`, `AGENTS.md`, the `amanah` skill and `/phase` mention it. The repository was renamed from `amanah-frontend` to `amanah`.
 
 ### Added
 
@@ -38,7 +38,7 @@ Sections per release: **Added**, **Changed**, **Fixed**, **Removed**, **Security
 - **F2.1 Campaign list** (approved on the design canvas, saved in docs/design/campaign-pages): `/campaigns` is server-rendered and always loads fresh data. City and organisation filters and the page number live in the address, so they survive a reload. Six cards per page with Previous and Next, a loading skeleton, and empty, no-match and error states. The landing page's "Browse campaigns" and "Give now" and the footer now lead here, and header and footer section links on other pages go back to the landing page. Closed as Done (mocked), waiting on B5.1 and a Lighthouse run once deployed.
 - **F2.2 Campaign card** (approved on the design canvas): the card now shows a status badge (Live, Target reached, Closed, Completed), the closed and completed lines ("Ended below target. Funds go to its stated purpose.", "All items delivered and confirmed"), a two-line title clamp and a truncated organisation name. Tests cover LIVE, FUNDED, CLOSED, COMPLETED and a long title. Closed as Done (mocked), waiting on B5.1.
 - **Raising now** on the landing page (approved on the design canvas): up to three campaign cards from `GET /api/campaigns`, live first then funded, with cover photo, verified organisation, progress and the funding state (exact spec copy for the cap states). Renders nothing while loading, on error or with no campaigns, so the live site never shows placeholders. New `CampaignCard` and `fundingNote` in `src/features/campaigns` (groundwork for F2.1/F2.2). Mock campaigns now have Unsplash cover photos (credits in docs/design/landing-page/README.md).
-- `/phase` command (`.agents/commands/phase.md`): `/phase F2` or `/phase F2.3` makes a new session read the project rules, roadmap entries, spec sections and ADRs, then present a plan and questions, and wait for approval before building, claiming and closing items per the workflow.
+- `/phase` command (`.claude/commands/phase.md`): `/phase F2` or `/phase F2.3` makes a new session read the project rules, roadmap entries, spec sections and ADRs, then present a plan and questions, and wait for approval before building, claiming and closing items per the workflow.
 - **F1.2 Core UI components** on shadcn/ui (ADR-009): Button (pills, 44px, `gold` variant, `loading`), Input, Textarea, Select, Checkbox, Switch, Label, Field set, Card, Badge (status tones), Dialog, Sheet, Tabs, Skeleton, Separator, Alert, Spinner, Empty, and the Sonner Toaster (mounted in Providers). Added EmptyState and ErrorState. `components.json` is set up for the shadcn CLI. There's a development-only showcase at `/dev/ui`.
 - **F1.3 Money and status components:** MoneyAmount (`<data value={kobo}>`), NairaInput with `useNairaInput` and `validateNairaText`, CampaignStatusBadge, ItemStatusBadge and VerifiedBadge. Wording and the exact spec sentences live in `src/lib/status.ts`.
 - **F1.1:** `docs/design-system.md`, new semantic tokens mapped to the palette, danger tints, `src/lib/brand.ts`, and a test that fails on raw hex colours in components and pages.
@@ -100,15 +100,15 @@ Sections per release: **Added**, **Changed**, **Fixed**, **Removed**, **Security
 
 ### Added
 
-- Project skill `.agents/skills/amanah` (project rules, domain rules, frontend conventions, workflow, design-skill routing).
-- The official `frontend-design` skill, with its role added to the Amanah design-skills guide.
+- Project skill `.claude/skills/amanah` (project rules, domain rules, frontend conventions, workflow, design-skill routing).
+- Anthropic's official `frontend-design` skill, with its role added to the Amanah design-skills guide.
 - Third-party skills via the `skills` CLI, pinned in `skills-lock.json`: impeccable, ui-ux-pro-max, design-taste-frontend, agent-browser and 13 Emil Kowalski skills (excluding native-only `write-swift` and `animate-expo`).
 
 ### Changed
 
 - Prettier and ESLint ignore third-party skill folders; `.taste-skill/` working files are gitignored.
-- Commit convention: no AI attribution trailers in commits or PRs; existing commits re-authored as Ojutalayo Haneef Abiola (`PROJECT_MEMORY.md`, `AGENTS.md`).
-- Set the git remote `origin` to https://github.com/haneefojay/amanah-frontend and recorded it in `PROJECT_MEMORY.md` and `PROJECT.md` (F0.5).
+- Commit convention: no AI attribution trailers in commits or PRs; existing commits re-authored as Ojutalayo Haneef Abiola (`CLAUDE.md`, `AGENTS.md`).
+- Set the git remote `origin` to https://github.com/haneefojay/amanah-frontend and recorded it in `CLAUDE.md` and `PROJECT.md` (F0.5).
 
 ## [0.1.0] - 2026-10-18
 
@@ -144,4 +144,4 @@ Initial development environment and project documentation.
 
 - Moved the MVP specification to `docs/amanah-mvp-spec.md`.
 - Added `docs/roadmap/FRONTEND_ROADMAP.md` (F0 to F13), `BACKEND_ROADMAP.md` (B0 to B12) and `ROADMAP_INDEX.md` (status board, milestones, agent workflow).
-- Added `PROJECT.md`, `AGENTS.md`, `PROJECT_MEMORY.md`, `README.md`, `docs/decisions/` (index and template) and `.agents/skills/README.md`.
+- Added `PROJECT.md`, `AGENTS.md`, `CLAUDE.md`, `README.md`, `docs/decisions/` (index and template) and `.claude/skills/README.md`.

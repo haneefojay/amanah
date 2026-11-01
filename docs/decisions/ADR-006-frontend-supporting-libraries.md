@@ -2,7 +2,7 @@
 
 - **Status:** Accepted
 - **Date:** 2026-10-18
-- **Deciders:** Project owner (agreed with the proposed choices); the agent
+- **Deciders:** Project owner (agreed with the proposed choices); Claude
 - **Related:** spec §9; FRONTEND_ROADMAP F0, F1, F4.2
 
 ## Context

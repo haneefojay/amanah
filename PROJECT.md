@@ -59,10 +59,10 @@ Entry for the **AMETTSA Inter-Varsity Innovation Challenge** (AMETTSA 5.0 Annual
 | `docs/roadmap/`           | Frontend roadmap, backend roadmap and **ROADMAP_INDEX.md** (status) |
 | `docs/decisions/`         | Architecture Decision Records (ADR-001 onwards)                     |
 | `AGENTS.md`               | How any AI agent or contributor works on this project               |
-| `PROJECT_MEMORY.md`       | Agent-specific memory and instructions                              |
+| `CLAUDE.md`               | Claude-specific memory and instructions                             |
 | `CHANGELOG.md`            | Every notable change, newest first                                  |
 | `README.md`               | Developer setup and commands                                        |
-| `.agents/skills/`         | Skills available to the agent for this project                      |
+| `.claude/skills/`         | Skills available to Claude for this project                         |
 
 ## Status
 
