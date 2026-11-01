@@ -8,6 +8,10 @@ Sections per release: **Added**, **Changed**, **Fixed**, **Removed**, **Security
 
 ## [Unreleased]
 
+### Decisions
+
+- **ADR-004 accepted:** the backend is Python with FastAPI on PostgreSQL (SQLAlchemy, Alembic, pytest), in its own repository. A monorepo was considered and rejected because the backend is not TypeScript. Unblocks B0.2 to B0.5.
+
 ### Added
 
 - **Same-origin mock API for deployed previews** (`src/app/api/[...path]/route.ts`): when the server-only `ENABLE_MOCK_API=1` is set, `/api/*` serves the existing MSW handlers, the same ones `npm run mock:api` serves locally. This fixes `/campaigns` on the Vercel deployment, which showed "We couldn't load campaigns" because the API base URL fell back to `http://localhost:4000`. It contains no business logic and returns 404 when the flag is unset, so it switches off cleanly once the backend (ADR-004) is live. Responses stay NetworkOnly in the service worker. Route tests cover disabled, enabled (validated against the contract schema) and unmocked endpoints. To use it on Vercel: set `ENABLE_MOCK_API=1` and `NEXT_PUBLIC_API_BASE_URL` to the deployment URL, then redeploy.
@@ -121,7 +125,7 @@ Initial development environment and project documentation.
 - ADR-001 Frontend framework: Next.js App Router with TypeScript (Accepted).
 - ADR-002 PWA strategy: Serwist; money data network-only; `cacheComponents` turned off (Accepted).
 - ADR-003 Separate backend service; contract-first, mock-backed frontend (Accepted).
-- ADR-004 Backend stack (Proposed, awaiting the team).
+- ADR-004 Backend stack (Accepted 2026-11-01: FastAPI on PostgreSQL, separate repository).
 - ADR-005 Frontend testing strategy (Accepted).
 - ADR-006 Frontend supporting libraries (Accepted).
 
