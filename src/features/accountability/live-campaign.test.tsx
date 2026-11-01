@@ -2,8 +2,8 @@ import { focusManager, onlineManager } from "@tanstack/react-query";
 import { act, screen, within } from "@testing-library/react";
 import { http, HttpResponse } from "msw";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { campaignDetails } from "@/mocks/fixtures";
-import { server } from "@/mocks/node";
+import { campaignDetails } from "@/test/fixtures";
+import { server } from "@/test/server";
 import { renderWithProviders } from "@/test/render";
 import {
   LIVE_REFRESH_MS,

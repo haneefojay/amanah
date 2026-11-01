@@ -1,7 +1,7 @@
 import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { campaignItem, type CampaignItem } from "@/lib/api/schemas";
-import { campaignDetails } from "@/mocks/fixtures";
+import { campaignDetails } from "@/test/fixtures";
 import { expectNoA11yViolations } from "@/test/axe";
 import { CampaignItems } from "./campaign-items";
 import { pendingWitnessText } from "./witness-confirmation";

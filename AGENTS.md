@@ -44,18 +44,18 @@ Follow the workflow in ROADMAP_INDEX §1:
 
 ## 4. Project rules (non-negotiable)
 
-| Rule                                                                                | Why                        | How it is enforced                           |
-| ----------------------------------------------------------------------------------- | -------------------------- | -------------------------------------------- |
-| Money is **integer kobo** only. Use `src/lib/money.ts`                              | Spec §9: no floating point | ESLint bans `parseFloat`; unit tests         |
-| The donation cap is enforced by the **backend**. The frontend only reflects it      | Spec §4                    | Code review; e2e tests                       |
-| **Never cache money data** in the service worker                                    | ADR-002                    | `/api/*` NetworkOnly in `src/app/sw.ts`      |
-| **No zakat or waqf terminology** in the product                                     | Spec §1                    | `npm run check:terms` in CI                  |
-| All API calls go through `src/lib/api` with a **Zod schema** and an **MSW handler** | ADR-003                    | Code review; MSW `onUnhandledFrame: "error"` |
-| **No secrets in the frontend.** Only `NEXT_PUBLIC_*` values, none of them secret    | Spec §9                    | Code review; `.env*` gitignored              |
-| Public pages **never show donor email or phone**                                    | NDPA, spec §9              | E2E privacy test (F4.6)                      |
-| **Mobile first:** works at 360px width on a mid-range Android phone                 | Spec §9                    | Playwright `mobile-chrome` project           |
-| Accessible: labels, keyboard, contrast, axe clean                                   | Quality                    | axe tests (F1.6 onwards)                     |
-| Don't renumber roadmap IDs or ADRs                                                  | Traceability               | Review                                       |
+| Rule                                                                                  | Why                        | How it is enforced                           |
+| ------------------------------------------------------------------------------------- | -------------------------- | -------------------------------------------- |
+| Money is **integer kobo** only. Use `src/lib/money.ts`                                | Spec §9: no floating point | ESLint bans `parseFloat`; unit tests         |
+| The donation cap is enforced by the **backend**. The frontend only reflects it        | Spec §4                    | Code review; e2e tests                       |
+| **Never cache money data** in the service worker                                      | ADR-002                    | `/api/*` NetworkOnly in `src/app/sw.ts`      |
+| **No zakat or waqf terminology** in the product                                       | Spec §1                    | `npm run check:terms` in CI                  |
+| All API calls go through `src/lib/api` with a **Zod schema** (tests stub it with MSW) | ADR-003                    | Code review; MSW `onUnhandledFrame: "error"` |
+| **No secrets in the frontend.** Only `NEXT_PUBLIC_*` values, none of them secret      | Spec §9                    | Code review; `.env*` gitignored              |
+| Public pages **never show donor email or phone**                                      | NDPA, spec §9              | E2E privacy test (F4.6)                      |
+| **Mobile first:** works at 360px width on a mid-range Android phone                   | Spec §9                    | Playwright `mobile-chrome` project           |
+| Accessible: labels, keyboard, contrast, axe clean                                     | Quality                    | axe tests (F1.6 onwards)                     |
+| Don't renumber roadmap IDs or ADRs                                                    | Traceability               | Review                                       |
 
 ## 5. When to stop and ask the user
 
@@ -76,10 +76,10 @@ src/
     pwa/               PWA-specific UI (offline banner, install prompt, update toast)
   features/            Feature modules, one folder per roadmap area (campaigns, checkout, ...)
   lib/                 Framework-agnostic helpers: money, env, cn, api client and schemas
-  mocks/               MSW handlers and fixtures (tests and `npm run mock:api`)
+  test/                MSW stubs and fixtures (unit tests only; ADR-014)
   test/                Test setup and render helpers
 tests/e2e/             Playwright specs (run against a production build)
-scripts/               Mock API server, terminology guard, icon generator
+scripts/               Terminology guard, icon generator
 docs/                  Spec, roadmaps, decisions (ADRs)
 .claude/skills/        Skills for Claude (see its README)
 ```
@@ -89,8 +89,6 @@ docs/                  Spec, roadmaps, decisions (ADRs)
 | Command                           | What it does                                                        |
 | --------------------------------- | ------------------------------------------------------------------- |
 | `npm run dev`                     | Next.js dev server (http://localhost:3000)                          |
-| `npm run dev:mock`                | Mock API (port 4000) and the dev server together                    |
-| `npm run mock:api`                | Mock API only                                                       |
 | `npm run verify`                  | Format check, lint, typecheck, terminology check, unit tests, build |
 | `npm test` / `npm run test:watch` | Unit and component tests                                            |
 | `npm run test:coverage`           | Tests with a coverage report                                        |

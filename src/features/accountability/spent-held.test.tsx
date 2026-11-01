@@ -2,7 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import type { CampaignDetail } from "@/lib/api/schemas";
 import { formatNaira } from "@/lib/money";
-import { campaignDetails } from "@/mocks/fixtures";
+import { campaignDetails } from "@/test/fixtures";
 import { expectNoA11yViolations } from "@/test/axe";
 import { AccountabilitySection } from "./accountability-section";
 import { SpentHeld } from "./spent-held";

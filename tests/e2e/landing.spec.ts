@@ -1,5 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import { expectNoA11yViolations } from "./helpers/a11y";
+import { hasBackend, needsBackend } from "./helpers/backend";
 
 /** F2.6: public landing page. Runs on the mobile (Pixel 7) and desktop projects. */
 
@@ -178,6 +179,8 @@ test.describe("Landing navigation", () => {
 });
 
 test.describe("Raising now", () => {
+  test.skip(!hasBackend, needsBackend);
+
   test("shows the campaigns from the API with their cover photos", async ({ page }) => {
     await page.goto("/");
     const list = page.getByRole("list", { name: "Campaigns raising now" });

@@ -1,7 +1,7 @@
 import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import type { CampaignSummary } from "@/lib/api/schemas";
-import { publicCampaigns } from "@/mocks/fixtures";
+import { publicCampaigns } from "@/test/fixtures";
 import { expectNoA11yViolations } from "@/test/axe";
 import { FundingPanel, panelNote } from "./funding-panel";
 

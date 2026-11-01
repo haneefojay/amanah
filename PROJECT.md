@@ -41,7 +41,7 @@ Entry for the **AMETTSA Inter-Varsity Innovation Challenge** (AMETTSA 5.0 Annual
 │  Next.js 16 App Router, PWA  │   src/lib/api + Zod        │  FastAPI (ADR-004)        │
 │  Tailwind · TanStack Query   │  ◄───────────────────────  │  PostgreSQL · MinIO       │
 └──────────────────────────────┘                            └───────────────────────────┘
-          ▲ dev and tests: MSW mock API (npm run mock:api)
+          ▲ dev: the real backend (amanah-api); unit tests: MSW stubs
 ```
 
 ## Repositories

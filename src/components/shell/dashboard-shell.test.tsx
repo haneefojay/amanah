@@ -1,8 +1,8 @@
 import { screen, within } from "@testing-library/react";
 import { http, HttpResponse } from "msw";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { server } from "@/mocks/node";
-import { usersByRole } from "@/mocks/fixtures";
+import { server } from "@/test/server";
+import { usersByRole } from "@/test/fixtures";
 import { expectNoA11yViolations } from "@/test/axe";
 import { renderWithProviders } from "@/test/render";
 import { DashboardShell } from "./dashboard-shell";

@@ -1,4 +1,7 @@
 import { test } from "@playwright/test";
+import { hasBackend, needsBackend } from "./helpers/backend";
+
+test.skip(!hasBackend, needsBackend);
 
 /**
  * Full-page screenshots of the landing page for documents and PR reviews.

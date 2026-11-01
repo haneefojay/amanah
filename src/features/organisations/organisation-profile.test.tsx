@@ -2,7 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import type { OrganisationProfile as Profile } from "@/lib/api/schemas";
-import { organisationIds, organisationProfiles } from "@/mocks/fixtures";
+import { organisationIds, organisationProfiles } from "@/test/fixtures";
 import { expectNoA11yViolations } from "@/test/axe";
 import { OrganisationProfile } from "./organisation-profile";
 
