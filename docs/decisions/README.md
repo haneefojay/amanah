@@ -9,7 +9,7 @@ Every significant decision about Amanah (technology, architecture, process, or h
 | [ADR-001](./ADR-001-frontend-framework.md)            | Frontend framework: Next.js App Router with TypeScript                         | Accepted | 2026-10-18 |
 | [ADR-002](./ADR-002-pwa-strategy.md)                  | PWA strategy: Serwist service worker with network-only money data              | Accepted | 2026-10-18 |
 | [ADR-003](./ADR-003-frontend-backend-separation.md)   | Separate backend service and contract-first frontend development               | Accepted | 2026-10-18 |
-| [ADR-004](./ADR-004-backend-stack.md)                 | Backend technology stack                                                       | Proposed | 2026-10-18 |
+| [ADR-004](./ADR-004-backend-stack.md)                 | Backend technology stack                                                       | Accepted | 2026-11-01 |
 | [ADR-005](./ADR-005-frontend-testing-strategy.md)     | Frontend testing strategy                                                      | Accepted | 2026-10-18 |
 | [ADR-006](./ADR-006-frontend-supporting-libraries.md) | Frontend supporting libraries                                                  | Accepted | 2026-10-18 |
 | [ADR-007](./ADR-007-typography-and-fonts.md)          | Typography: self-hosted Schibsted Grotesk, plus Reem Kufi cut down to one word | Accepted | 2026-10-18 |
