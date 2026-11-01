@@ -16,6 +16,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## 1. Start of every session
 
+0. This is the **frontend** repository. The backend lives in [haneefojay/amanah-api](https://github.com/haneefojay/amanah-api); its roadmap and ADRs are the source of truth for `B…` items.
 1. Read [`CLAUDE.md`](./CLAUDE.md) (project memory and standing instructions). Agents that support skills: load `.claude/skills/amanah/SKILL.md` — it condenses the project and domain rules.
 2. Read [`docs/roadmap/ROADMAP_INDEX.md`](docs/roadmap/ROADMAP_INDEX.md): current focus, milestones, status board and blockers.
 3. Skim the latest entries in [`CHANGELOG.md`](./CHANGELOG.md) to see what changed recently.
@@ -58,7 +59,7 @@ Follow the workflow in ROADMAP_INDEX §1:
 
 ## 5. When to stop and ask the user
 
-- Anything touching an **open decision** (spec §11: D1 to D11, or ADR-004) beyond the documented default.
+- Anything touching an **open decision** (spec §11: D1 to D11) beyond the documented default, or any change to the API contract that the backend repository ([haneefojay/amanah-api](https://github.com/haneefojay/amanah-api)) has not agreed.
 - Anything **hard to reverse**: deleting data or files, changing the money or cap model, rewriting git history, changing the deployment target.
 - Adding a **new runtime dependency** that isn't in an ADR. Propose it first, or write a `Proposed` ADR.
 - When the spec and a roadmap entry disagree. The spec wins, but flag it.

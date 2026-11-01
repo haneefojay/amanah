@@ -110,7 +110,7 @@ DRAFT → PENDING_REVIEW → LIVE → FUNDED (automatic at target) → COMPLETED
 | D2  | Witness channel                                               | In-app                                             |
 | D3  | Payment provider                                              | Paystack test mode                                 |
 | D4  | Settlement                                                    | Record only                                        |
-| D5  | Stack                                                         | Frontend: ADR-001/006. Backend: ADR-004 pending    |
+| D5  | Stack                                                         | Frontend ADR-001/006. Backend ADR-004 (FastAPI)    |
 | D6  | Reservation TTL                                               | 15 min                                             |
 | D7  | Donor accounts                                                | Guest only                                         |
 | D8  | Purpose lock, no riba, permissible purposes, anonymous giving | **None** until approved — don't build them         |

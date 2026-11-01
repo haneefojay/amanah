@@ -10,7 +10,12 @@ Sections per release: **Added**, **Changed**, **Fixed**, **Removed**, **Security
 
 ### Decisions
 
+- **ADR-011 to ADR-013** (recorded in the backend repository): hand-written authentication with server-side sessions, backend hosting on Railway moving to a VPS later, and MinIO for files. Frontend impact: cookie auth needs the frontend and API on one registrable domain or a `/api/*` proxy (F0.6, F5.1).
 - **ADR-004 accepted:** the backend is Python with FastAPI on PostgreSQL (SQLAlchemy, Alembic, pytest), in its own repository. A monorepo was considered and rejected because the backend is not TypeScript. Unblocks B0.2 to B0.5.
+
+### Docs
+
+- **Backend repository** `haneefojay/amanah-api` created with the spec copy, backend roadmap, status index, ADRs and agent guides. This repository now points to it: `BACKEND_ROADMAP.md` is a pointer, `B…` rows in the index are a mirror, and `PROJECT.md`, `README.md`, `CLAUDE.md`, `AGENTS.md`, the `amanah` skill and `/phase` mention it. The repository was renamed from `amanah-frontend` to `amanah`.
 
 ### Added
 

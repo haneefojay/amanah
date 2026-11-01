@@ -3,7 +3,7 @@
 - **Status:** Accepted
 - **Date:** 2026-10-18 (proposed), 2026-11-01 (accepted)
 - **Deciders:** Project owner (Haneef)
-- **Related:** spec §4.2, §8 (D5), §9; BACKEND_ROADMAP B0; ADR-003
+- **Related:** spec §4.2, §8 (D5), §9; BACKEND_ROADMAP B0; ADR-003; ADR-011, ADR-012, ADR-013
 
 ## Context
 
@@ -52,7 +52,9 @@ Working choices that follow from it (refined in B0.2 to B0.5; change them with a
 - FastAPI with Pydantic v2 for validation and OpenAPI generation; SQLAlchemy 2.x with Alembic migrations; `uv` for dependencies; pytest against a real PostgreSQL; Ruff and a type checker in CI.
 - Row locking with `SELECT ... FOR UPDATE` (`with_for_update()`) inside transactions, as the spec requires for the donation cap.
 - Paystack in test mode (spec D3) and a scheduled job for reservation expiry.
-- Not yet decided, still defaults to confirm in B0.1 follow-up: auth approach, hosting and managed PostgreSQL, and object storage (candidates in the options above).
+- Authentication is written by hand, with no external auth service: [ADR-011](https://github.com/haneefojay/amanah-api/blob/main/docs/decisions/ADR-011-authentication.md).
+- Hosting starts on Railway (API and PostgreSQL), moving to a VPS later: [ADR-012](https://github.com/haneefojay/amanah-api/blob/main/docs/decisions/ADR-012-hosting-railway.md).
+- Files are stored in MinIO behind an S3-compatible adapter: [ADR-013](https://github.com/haneefojay/amanah-api/blob/main/docs/decisions/ADR-013-object-storage-minio.md).
 
 ## Rationale
 
@@ -62,7 +64,7 @@ Working choices that follow from it (refined in B0.2 to B0.5; change them with a
 
 ## Consequences
 
-- B0.1 is done. B0.2 to B0.5 can start in the new backend repository.
+- B0.1 is done. B0.2 to B0.5 start in the backend repository, [haneefojay/amanah-api](https://github.com/haneefojay/amanah-api).
 - The frontend loses the option of importing the Zod schemas from a shared package. `src/lib/api/schemas.ts` stays as the frontend's copy of the contract and is reconciled with the generated OpenAPI document (F0.4, B0.3), for example by generating TypeScript types from it.
 - The MSW mock API stays until each endpoint is integrated (ADR-003).
 - Two repositories to keep in step: contract changes are announced in the matching `F` and `B` items.
