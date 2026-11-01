@@ -1,6 +1,6 @@
 # AGENTS.md: how agents work on Amanah
 
-This file is the operating guide for **any** AI coding agent (Claude, Codex, Cursor, Copilot and others) and for human contributors. **Claude: also read [`CLAUDE.md`](./CLAUDE.md)**, which holds project memory and Claude-specific instructions and takes precedence where the two differ.
+This file is the operating guide for **any** AI coding agent (Codex, Cursor, Copilot and others) and for human contributors. **Also read [`PROJECT_MEMORY.md`](./PROJECT_MEMORY.md)**, which holds project memory and agent-specific instructions and takes precedence where the two differ.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
@@ -17,7 +17,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 ## 1. Start of every session
 
 0. This is the **frontend** repository. The backend lives in [haneefojay/amanah-api](https://github.com/haneefojay/amanah-api); its roadmap and ADRs are the source of truth for `B…` items.
-1. Read [`CLAUDE.md`](./CLAUDE.md) (project memory and standing instructions). Agents that support skills: load `.claude/skills/amanah/SKILL.md` — it condenses the project and domain rules.
+1. Read [`PROJECT_MEMORY.md`](./PROJECT_MEMORY.md) (project memory and standing instructions). Agents that support skills: load `.agents/skills/amanah/SKILL.md` — it condenses the project and domain rules.
 2. Read [`docs/roadmap/ROADMAP_INDEX.md`](docs/roadmap/ROADMAP_INDEX.md): current focus, milestones, status board and blockers.
 3. Skim the latest entries in [`CHANGELOG.md`](./CHANGELOG.md) to see what changed recently.
 4. For the item you'll work on, read its full entry in [`FRONTEND_ROADMAP.md`](docs/roadmap/FRONTEND_ROADMAP.md) or [`BACKEND_ROADMAP.md`](docs/roadmap/BACKEND_ROADMAP.md), the spec sections it cites, and any related ADRs in [`docs/decisions/`](docs/decisions/README.md).
@@ -81,7 +81,7 @@ src/
 tests/e2e/             Playwright specs (run against a production build)
 scripts/               Terminology guard, icon generator
 docs/                  Spec, roadmaps, decisions (ADRs)
-.claude/skills/        Skills for Claude (see its README)
+.agents/skills/        Skills for the agent (see its README)
 ```
 
 ## 7. Commands

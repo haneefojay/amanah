@@ -1,7 +1,7 @@
 # Campaign pages design (campaign list, campaign page, organisation profile)
 
 - **Status:** Approved by the project owner on 2026-10-18.
-- **Canvas (live, editable):** https://claude.ai/artifact/DKPCUba4XAh1UQ95qVfaQR. It's private: the owner shares it from the canvas's Share menu. The canvas is the source of truth if the snapshots differ.
+- **Canvas (live, editable):** a private design canvas. It's private: the owner shares it from the canvas's Share menu. The canvas is the source of truth if the snapshots differ.
 - **Snapshots:** the `.dc.html` files in this folder, one per board.
 - **Roadmap:** F2.1 campaign list, F2.2 campaign card, F2.3 campaign page shell, F2.4 organisation profile; F3 accountability section (boards approved on 2026-10-18).
 

@@ -2,7 +2,7 @@
 
 - **Status:** Accepted
 - **Date:** 2026-10-18
-- **Deciders:** Project owner (every feature must be tested); Claude (tooling)
+- **Deciders:** Project owner (every feature must be tested); the agent (tooling)
 - **Related:** spec §10 acceptance criteria; FRONTEND_ROADMAP Global Definition of Done, F0.2, F13.4
 
 ## Context

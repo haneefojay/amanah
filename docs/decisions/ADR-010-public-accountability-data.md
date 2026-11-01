@@ -2,7 +2,7 @@
 
 - **Status:** Accepted
 - **Date:** 2026-10-18
-- **Deciders:** Project owner (witness names, design); Claude (data shape, refresh mechanism)
+- **Deciders:** Project owner (witness names, design); the agent (data shape, refresh mechanism)
 - **Related:** spec §6, §7, §9; FRONTEND_ROADMAP F3.1 to F3.7; BACKEND_ROADMAP B5.2, B5.3, B8.2, B8.3, B9.2, B9.3; ADR-002, ADR-003
 
 ## Context

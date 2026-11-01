@@ -42,4 +42,4 @@ Vercel has the least friction and the lowest risk for a Next.js 16 PWA under dea
 
 - Positive: a live link from the first push, with automatic updates and per-PR previews (closes most of F0.6).
 - Negative or risks: plan limits (move to Pro before commercial use), and possible vendor lock-in through Vercel-only features, which we avoid by using standard Next.js only.
-- Follow-up: the owner connects the GitHub repository in the Vercel dashboard. Add the production URL to `PROJECT.md` and `CLAUDE.md`. B12.4 decides backend hosting separately.
+- Follow-up: the owner connects the GitHub repository in the Vercel dashboard. Add the production URL to `PROJECT.md` and `PROJECT_MEMORY.md`. B12.4 decides backend hosting separately.

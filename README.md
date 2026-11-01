@@ -52,10 +52,10 @@ In development, open http://localhost:3000/dev/ui to see every UI component (not
 
 ## Project documentation
 
-| File                      | Purpose                                             |
-| ------------------------- | --------------------------------------------------- |
-| `docs/amanah-mvp-spec.md` | Product specification                               |
-| `docs/roadmap/`           | Frontend and backend roadmaps, and the status index |
-| `docs/decisions/`         | Architecture Decision Records                       |
-| `AGENTS.md` / `CLAUDE.md` | Guides for AI agents and contributors               |
-| `CHANGELOG.md`            | Change history                                      |
+| File                              | Purpose                                             |
+| --------------------------------- | --------------------------------------------------- |
+| `docs/amanah-mvp-spec.md`         | Product specification                               |
+| `docs/roadmap/`                   | Frontend and backend roadmaps, and the status index |
+| `docs/decisions/`                 | Architecture Decision Records                       |
+| `AGENTS.md` / `PROJECT_MEMORY.md` | Guides for AI agents and contributors               |
+| `CHANGELOG.md`                    | Change history                                      |

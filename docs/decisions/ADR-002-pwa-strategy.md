@@ -2,7 +2,7 @@
 
 - **Status:** Accepted
 - **Date:** 2026-10-18
-- **Deciders:** Project owner (PWA requirement); Claude (tooling choice, open to review)
+- **Deciders:** Project owner (PWA requirement); the agent (tooling choice, open to review)
 - **Related:** spec §4.2, §7 (in-app evidence capture), §9 (mobile-first); FRONTEND_ROADMAP F0.3, F8.3, F12; ADR-001
 
 ## Context

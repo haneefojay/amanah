@@ -21,7 +21,7 @@ const eslintConfig = defineConfig([
   },
   globalIgnores([
     ".next/**",
-    ".claude/**",
+    ".agents/**",
     ".taste-skill/**",
     "out/**",
     "build/**",
