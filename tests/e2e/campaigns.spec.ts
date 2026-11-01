@@ -1,5 +1,8 @@
 import { expect, test } from "@playwright/test";
 import { expectNoA11yViolations } from "./helpers/a11y";
+import { hasBackend, needsBackend } from "./helpers/backend";
+
+test.skip(!hasBackend, needsBackend);
 
 /** F2.1: public campaign list. Runs on the mobile (Pixel 7) and desktop projects. */
 

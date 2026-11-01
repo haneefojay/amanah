@@ -45,6 +45,7 @@
 
 ## 2. Current focus
 
+- **Branching (ADR-014):** all frontend work goes to `dev`; `main` stays as deployed until the backend is live. The mock API is removed on `dev`; next is generating types from the backend `openapi.json` (F0.4 reconciliation).
 - **Now:** F1, F2.1 to F2.4 and all of F3 (accountability section) are done against mocks, which meets M1's frontend exit criteria. Next: F4 (checkout) against mocks. F0.6: deployed at amanah-frontend-beta.vercel.app; set `ENABLE_MOCK_API=1` and `NEXT_PUBLIC_API_BASE_URL` on Vercel so `/campaigns` loads. B0.1 is done: ADR-004 accepted on 2026-11-01 (FastAPI on PostgreSQL, in a separate repository). The backend repository is [haneefojay/amanah-api](https://github.com/haneefojay/amanah-api), which now holds the spec copy, the backend roadmap, its own status index and ADR-011 to ADR-013 (auth, Railway, MinIO). Next on the backend: B0.2 service skeleton.
 - **Next:** F4 (donation checkout) against mocks; F3 integrates with the backend in M3 (B5.2, B5.3, B8.2, B8.3, B9.2, B9.3).
 - **Decisions needed from the team:** the cookie arrangement between frontend and API (shared parent domain or proxy, ADR-011), spec open decisions D8, D9 and D11, the convention date, and the pilot organisation.

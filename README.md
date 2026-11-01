@@ -22,7 +22,7 @@ npm run verify                    # format, lint, types, terminology, unit tests
 ## Daily development
 
 ```bash
-npm run dev:mock     # mock API on :4000 and the app on http://localhost:3000
+npm run dev          # the app on http://localhost:3000 (needs the backend on :8000)
 ```
 
 Open http://localhost:3000. On your phone (same Wi-Fi), use `http://<your-PC-IP>:3000`. Camera and location features (F8) need HTTPS on a real phone; use the preview deployment or `next dev --experimental-https`.
@@ -43,12 +43,12 @@ In development, open http://localhost:3000/dev/ui to see every UI component (not
 
 ## Testing
 
-| Command                 | Runs                                                                                            |
-| ----------------------- | ----------------------------------------------------------------------------------------------- |
-| `npm test`              | Unit and component tests (Vitest, RTL, MSW)                                                     |
-| `npm run test:watch`    | The same, in watch mode                                                                         |
-| `npm run test:coverage` | With a coverage report in `coverage/`                                                           |
-| `npm run test:e2e`      | Playwright on mobile and desktop against a production build (starts the mock API automatically) |
+| Command                 | Runs                                                                                                      |
+| ----------------------- | --------------------------------------------------------------------------------------------------------- |
+| `npm test`              | Unit and component tests (Vitest, RTL, MSW)                                                               |
+| `npm run test:watch`    | The same, in watch mode                                                                                   |
+| `npm run test:coverage` | With a coverage report in `coverage/`                                                                     |
+| `npm run test:e2e`      | Playwright on mobile and desktop against a production build (data specs need E2E_BACKEND=1 and a backend) |
 
 ## Project documentation
 

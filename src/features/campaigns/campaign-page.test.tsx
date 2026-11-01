@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { Toaster } from "@/components/ui/sonner";
 import type { CampaignDetail } from "@/lib/api/schemas";
-import { campaignDetails } from "@/mocks/fixtures";
+import { campaignDetails } from "@/test/fixtures";
 import { expectNoA11yViolations } from "@/test/axe";
 import { renderWithProviders } from "@/test/render";
 import { CampaignPage } from "./campaign-page";

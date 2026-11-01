@@ -1,5 +1,8 @@
 import { expect, test } from "@playwright/test";
 import { expectNoA11yViolations } from "./helpers/a11y";
+import { hasBackend, needsBackend } from "./helpers/backend";
+
+test.skip(!hasBackend, needsBackend);
 
 /** F3: the accountability section of the campaign page. Runs on the mobile and desktop projects. */
 

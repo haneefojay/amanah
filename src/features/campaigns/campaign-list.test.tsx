@@ -1,7 +1,7 @@
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
-import { campaignListBody, campaigns, publicCampaigns } from "@/mocks/fixtures";
+import { campaignListBody, campaigns, publicCampaigns } from "@/test/fixtures";
 import { expectNoA11yViolations } from "@/test/axe";
 import { CampaignList } from "./campaign-list";
 import { listHref } from "./campaign-pagination";

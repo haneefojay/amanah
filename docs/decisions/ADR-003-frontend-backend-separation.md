@@ -1,6 +1,6 @@
 # ADR-003: Separate backend service and contract-first frontend development
 
-- **Status:** Accepted
+- **Status:** Accepted (the mock-backed development approach is superseded by ADR-014, 2026-11-01)
 - **Date:** 2026-10-18
 - **Deciders:** Project owner
 - **Related:** spec §8; FRONTEND_ROADMAP F0.4; BACKEND_ROADMAP B0.3; ADR-004

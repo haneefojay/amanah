@@ -8,7 +8,13 @@ Sections per release: **Added**, **Changed**, **Fixed**, **Removed**, **Security
 
 ## [Unreleased]
 
+### Removed
+
+- **Mock API (ADR-014):** the standalone mock server (`npm run mock:api`, `npm run dev:mock`), the same-origin `/api/*` mock route and `ENABLE_MOCK_API`. MSW handlers and fixtures moved to `src/test/` for unit tests only. The API base URL now defaults to the backend on `http://localhost:8000`. Data-dependent end-to-end specs run only with `E2E_BACKEND=1` until a backend with seed data is available in CI.
+
 ### Decisions
+
+- **ADR-014:** `dev` is the base branch for frontend work and `main` stays untouched until the backend is live; no mock API from here on.
 
 - **ADR-011 to ADR-013** (recorded in the backend repository): hand-written authentication with server-side sessions, backend hosting on Railway moving to a VPS later, and MinIO for files. Frontend impact: cookie auth needs the frontend and API on one registrable domain or a `/api/*` proxy (F0.6, F5.1).
 - **ADR-004 accepted:** the backend is Python with FastAPI on PostgreSQL (SQLAlchemy, Alembic, pytest), in its own repository. A monorepo was considered and rejected because the backend is not TypeScript. Unblocks B0.2 to B0.5.

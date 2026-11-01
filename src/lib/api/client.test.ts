@@ -1,7 +1,7 @@
 import { http, HttpResponse } from "msw";
 import { describe, expect, it } from "vitest";
-import { organisationIds } from "@/mocks/fixtures";
-import { server } from "@/mocks/node";
+import { organisationIds } from "@/test/fixtures";
+import { server } from "@/test/server";
 import { api, ApiError } from "./client";
 
 describe("api client", () => {
