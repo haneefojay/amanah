@@ -11,3 +11,7 @@ docs/amanah-mvp-spec.md
 skills-lock.json
 .taste-skill
 docs/design/landing-page/*.dc.html
+
+# Generated from the backend OpenAPI contract (npm run api:types)
+src/lib/api/generated.ts
+src/lib/api/openapi.json

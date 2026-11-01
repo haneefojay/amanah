@@ -8,6 +8,10 @@ Sections per release: **Added**, **Changed**, **Fixed**, **Removed**, **Security
 
 ## [Unreleased]
 
+### Added
+
+- **Contract types (F0.4):** `npm run api:types` generates `src/lib/api/generated.ts` from the backend's `openapi.json` (`API_SPEC` or the sibling `../amanah-api` checkout). `src/lib/api/contract.test.ts` makes `npm run typecheck` fail if the Zod schemas in `schemas.ts` and the generated types disagree; today they match for campaigns, items, expenses, evidence, updates, organisation profiles and the current user.
+
 ### Removed
 
 - **Mock API (ADR-014):** the standalone mock server (`npm run mock:api`, `npm run dev:mock`), the same-origin `/api/*` mock route and `ENABLE_MOCK_API`. MSW handlers and fixtures moved to `src/test/` for unit tests only. The API base URL now defaults to the backend on `http://localhost:8000`. Data-dependent end-to-end specs run only with `E2E_BACKEND=1` until a backend with seed data is available in CI.
