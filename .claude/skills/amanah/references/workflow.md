@@ -2,7 +2,7 @@
 
 ## 1. Roadmap item lifecycle
 
-Files: `docs/roadmap/FRONTEND_ROADMAP.md`, `docs/roadmap/BACKEND_ROADMAP.md` (what and Definition of Done), `docs/roadmap/ROADMAP_INDEX.md` (**status — single source of truth**).
+Files: `docs/roadmap/FRONTEND_ROADMAP.md` (what and Definition of Done), `docs/roadmap/ROADMAP_INDEX.md` (**frontend status — single source of truth**). The backend roadmap and the backend status of `B…` items live in https://github.com/haneefojay/amanah-api; the `B…` rows in this index are a mirror.
 
 1. **Pick:** highest priority (P0 > P1 > P2) `Not started` item in the current milestone whose dependencies are `Done` or `Done (mocked)`. Never `Blocked` items; no P2 while a P0 in the milestone is open.
 2. **Claim:** in the index status board set `In progress`, Owner, Updated (YYYY-MM-DD, Africa/Lagos).
@@ -38,11 +38,11 @@ Update it in the same change when a durable fact changes (stack, conventions, ow
 - Conventional commit subjects: `feat(F3.2): items table with delivery status`, `fix:`, `docs:`, `test:`, `chore:`, `refactor:`.
 - **No AI attribution**: no `Co-Authored-By` lines for AI, no `Claude-Session`, no "Generated with …" in commits or PR descriptions. The author is the repository's configured git user (Ojutalayo Haneef Abiola).
 - Never force-push or rewrite pushed history without the user's explicit request.
-- Remote: `https://github.com/haneefojay/amanah-frontend` (branch `main`). CI (`.github/workflows/ci.yml`) must be green.
+- Remote: `https://github.com/haneefojay/amanah` (branch `main`). The backend is `https://github.com/haneefojay/amanah-api`. CI (`.github/workflows/ci.yml`) must be green.
 
 ## 6. When to stop and ask the user
 
-- Any spec open decision beyond its default, or ADR-004 (backend stack).
+- Any spec open decision beyond its default.
 - New runtime dependency not covered by an ADR.
 - Anything hard to reverse: deleting files or data, history rewrites, deployment changes, money/cap model changes.
 - The spec and a roadmap entry disagree.

@@ -2,11 +2,11 @@
 
 **This is the single source of truth for roadmap status.** The roadmap files describe _what_ to build and _when it counts as done_. This file records _where we are_. Every agent and contributor reads this file first and updates it last.
 
-| File                                           | Contents                                                       |
-| ---------------------------------------------- | -------------------------------------------------------------- |
-| [FRONTEND_ROADMAP.md](./FRONTEND_ROADMAP.md)   | Phases `F0` to `F13`: the Next.js PWA                          |
-| [BACKEND_ROADMAP.md](./BACKEND_ROADMAP.md)     | Phases `B0` to `B12`: the API service (stack pending, ADR-004) |
-| [../amanah-mvp-spec.md](../amanah-mvp-spec.md) | The product specification both roadmaps are derived from       |
+| File                                           | Contents                                                      |
+| ---------------------------------------------- | ------------------------------------------------------------- |
+| [FRONTEND_ROADMAP.md](./FRONTEND_ROADMAP.md)   | Phases `F0` to `F13`: the Next.js PWA                         |
+| [BACKEND_ROADMAP.md](./BACKEND_ROADMAP.md)     | Pointer: the backend roadmap lives in `haneefojay/amanah-api` |
+| [../amanah-mvp-spec.md](../amanah-mvp-spec.md) | The product specification both roadmaps are derived from      |
 
 **Last updated:** 18 October 2026, by Claude (F3 accountability section).
 
@@ -18,7 +18,7 @@
 2. **Pick work.** Take the highest-priority item that is `Not started` and whose dependencies are `Done` or `Done (mocked)`. Order of preference:
    - P0 before P1 before P2;
    - items in the current milestone (section 3) first;
-   - backend items that unblock the most P0 frontend items.
+   - backend items that unblock the most P0 frontend items (the backend repository decides its own order).
 
    Never start an item that is `Blocked`. Never start P2 while any P0 in the current milestone is open.
 
@@ -45,9 +45,9 @@
 
 ## 2. Current focus
 
-- **Now:** F1, F2.1 to F2.4 and all of F3 (accountability section) are done against mocks, which meets M1's frontend exit criteria. Next: F4 (checkout) against mocks. F0.6: deployed at amanah-frontend-beta.vercel.app; set `ENABLE_MOCK_API=1` and `NEXT_PUBLIC_API_BASE_URL` on Vercel so `/campaigns` loads. B0.1 (backend stack decision, ADR-004) is waiting on the team.
+- **Now:** F1, F2.1 to F2.4 and all of F3 (accountability section) are done against mocks, which meets M1's frontend exit criteria. Next: F4 (checkout) against mocks. F0.6: deployed at amanah-frontend-beta.vercel.app; set `ENABLE_MOCK_API=1` and `NEXT_PUBLIC_API_BASE_URL` on Vercel so `/campaigns` loads. B0.1 is done: ADR-004 accepted on 2026-11-01 (FastAPI on PostgreSQL, in a separate repository). The backend repository is [haneefojay/amanah-api](https://github.com/haneefojay/amanah-api), which now holds the spec copy, the backend roadmap, its own status index and ADR-011 to ADR-013 (auth, Railway, MinIO). Next on the backend: B0.2 service skeleton.
 - **Next:** F4 (donation checkout) against mocks; F3 integrates with the backend in M3 (B5.2, B5.3, B8.2, B8.3, B9.2, B9.3).
-- **Decisions needed from the team:** ADR-004 (backend stack), spec open decisions D8, D9 and D11, the convention date, and the pilot organisation.
+- **Decisions needed from the team:** the cookie arrangement between frontend and API (shared parent domain or proxy, ADR-011), spec open decisions D8, D9 and D11, the convention date, and the pilot organisation.
 
 ---
 
@@ -76,7 +76,7 @@ These are suggested dates. Adjust them here if the team changes them, and record
 | F0.2  | Test harness                            | P0  | Done          | Claude | 2026-10-18 | Vitest 5, RTL, MSW 3, Playwright (mobile and desktop)                                                                                                                                                                                                                                                                             |
 | F0.3  | PWA baseline                            | P0  | Done          | Claude | 2026-10-18 | Serwist (Turbopack), manifest, offline fallback, `useOffline`                                                                                                                                                                                                                                                                     |
 | F0.4  | API client, contract layer, mock API    | P0  | Done (mocked) | Claude | 2026-10-18 | Contract reconciliation waits on B0.3                                                                                                                                                                                                                                                                                             |
-| F0.5  | Continuous integration                  | P0  | In progress   | Claude | 2026-10-18 | Remote set to haneefojay/amanah-frontend. Done after the first push shows green CI                                                                                                                                                                                                                                                |
+| F0.5  | Continuous integration                  | P0  | In progress   | Claude | 2026-10-18 | Remote set to haneefojay/amanah (renamed from amanah-frontend). Done after the first push shows green CI                                                                                                                                                                                                                          |
 | F0.6  | Hosting and preview deployments         | P0  | In progress   | Claude | 2026-10-25 | Deployed at amanah-frontend-beta.vercel.app by the owner. Same-origin mock API added so `/campaigns` works there (`ENABLE_MOCK_API=1`, `NEXT_PUBLIC_API_BASE_URL` = deployment URL, then redeploy). Remaining: set those env vars, redeploy, confirm `/campaigns` loads                                                           |
 | F1.1  | Design tokens and typography            | P0  | Done          | Claude | 2026-10-18 | docs/design-system.md; raw-hex guard test; fonts per ADR-007                                                                                                                                                                                                                                                                      |
 | F1.2  | Core UI components                      | P0  | Done          | Claude | 2026-10-18 | shadcn/ui (ADR-009), adapted to tokens; showcase at /dev/ui (dev only)                                                                                                                                                                                                                                                            |
@@ -140,68 +140,70 @@ These are suggested dates. Adjust them here if the team changes them, and record
 | F13.4 | End-to-end demo script                  | P0  | Not started   |        |            |                                                                                                                                                                                                                                                                                                                                   |
 | F13.5 | Production release and demo kit         | P0  | Not started   |        |            |                                                                                                                                                                                                                                                                                                                                   |
 
-### Backend
+### Backend (mirror)
 
-| ID    | Feature                                | Pri | Status      | Owner | Updated    | Notes                                                    |
-| ----- | -------------------------------------- | --- | ----------- | ----- | ---------- | -------------------------------------------------------- |
-| B0.1  | Backend stack decision                 | P0  | Blocked     | Team  | 2026-10-18 | Waiting on the team: ADR-004                             |
-| B0.2  | Service skeleton                       | P0  | Not started |       |            | Blocked by B0.1                                          |
-| B0.3  | API contract (OpenAPI)                 | P0  | Not started |       |            | Draft frontend schemas exist in `src/lib/api/schemas.ts` |
-| B0.4  | Database and migrations                | P0  | Not started |       |            | PostgreSQL required                                      |
-| B0.5  | Test harness                           | P0  | Not started |       |            |                                                          |
-| B1.1  | Core schema                            | P0  | Not started |       |            |                                                          |
-| B1.2  | Append-only audit log                  | P0  | Not started |       |            |                                                          |
-| B1.3  | Demo seed data                         | P0  | Not started |       |            | Pilot organisation `[PLACEHOLDER]`                       |
-| B2.1  | Staff authentication                   | P0  | Not started |       |            |                                                          |
-| B2.2  | Authorisation and organisation scoping | P0  | Not started |       |            |                                                          |
-| B2.3  | Current user                           | P0  | Not started |       |            |                                                          |
-| B2.4  | Password reset                         | P2  | Not started |       |            |                                                          |
-| B3.1  | Organisation registration              | P0  | Not started |       |            |                                                          |
-| B3.2  | Verification documents                 | P0  | Not started |       |            |                                                          |
-| B3.3  | Verify or reject organisation          | P0  | Not started |       |            |                                                          |
-| B3.4  | Public organisation profile            | P1  | Not started |       |            |                                                          |
-| B4.1  | Draft campaigns and items              | P0  | Not started |       |            |                                                          |
-| B4.2  | Lifecycle state machine                | P0  | Not started |       |            |                                                          |
-| B4.3  | Immutability after first donation      | P0  | Not started |       |            | Purpose lock depends on D8                               |
-| B4.4  | Close early and end dates              | P0  | Not started |       |            | D10                                                      |
-| B4.5  | Completion                             | P1  | Not started |       |            |                                                          |
-| B5.1  | Campaign list                          | P0  | Not started |       |            |                                                          |
-| B5.2  | Campaign detail and accountability     | P0  | Not started |       |            |                                                          |
-| B5.3  | Live updates support                   | P0  | Not started |       |            |                                                          |
-| B6.1  | Checkout with reservations             | P0  | Not started |       |            | D1 = offer remaining, D6 = 15 min                        |
-| B6.2  | Reservation expiry                     | P0  | Not started |       |            |                                                          |
-| B6.3  | Concurrency test suite                 | P0  | Not started |       |            |                                                          |
-| B7.1  | Payment provider adapter               | P0  | Not started |       |            | D3 = Paystack test mode                                  |
-| B7.2  | Initialise transaction                 | P0  | Not started |       |            |                                                          |
-| B7.3  | Webhook confirmation                   | P0  | Not started |       |            |                                                          |
-| B7.4  | Excess handling                        | P0  | Not started |       |            | D9 ruling pending                                        |
-| B7.5  | Donation status                        | P0  | Not started |       |            |                                                          |
-| B8.1  | File storage                           | P0  | Not started |       |            |                                                          |
-| B8.2  | Evidence upload                        | P0  | Not started |       |            |                                                          |
-| B8.3  | Log expense                            | P0  | Not started |       |            |                                                          |
-| B8.4  | Item purchase status                   | P1  | Not started |       |            |                                                          |
-| B9.1  | Witness assignment                     | P0  | Not started |       |            | D2 = in-app                                              |
-| B9.2  | Delivery confirmation                  | P0  | Not started |       |            |                                                          |
-| B9.3  | Campaign updates                       | P1  | Not started |       |            |                                                          |
-| B10.1 | Organisation verification queue        | P0  | Not started |       |            |                                                          |
-| B10.2 | Campaign review queue                  | P0  | Not started |       |            |                                                          |
-| B10.3 | Excess resolution                      | P1  | Not started |       |            |                                                          |
-| B10.4 | Audit log query                        | P1  | Not started |       |            |                                                          |
-| B11.1 | Email adapter and receipt              | P1  | Not started |       |            | Gated by D11                                             |
-| B11.2 | Milestone notifications                | P2  | Not started |       |            | Gated by D11                                             |
-| B11.3 | Web push                               | P2  | Not started |       |            | Post-MVP                                                 |
-| B12.1 | Security hardening                     | P0  | Not started |       |            |                                                          |
-| B12.2 | Data protection (NDPA)                 | P0  | Not started |       |            |                                                          |
-| B12.3 | Observability                          | P1  | Not started |       |            |                                                          |
-| B12.4 | Deployment                             | P0  | Not started |       |            |                                                          |
+The source of truth for these rows is the backend repository's [ROADMAP_INDEX.md](https://github.com/haneefojay/amanah-api/blob/main/docs/roadmap/ROADMAP_INDEX.md). When a status changes there, update it here in the same piece of work.
+
+| ID    | Feature                                | Pri | Status      | Owner  | Updated    | Notes                                                    |
+| ----- | -------------------------------------- | --- | ----------- | ------ | ---------- | -------------------------------------------------------- |
+| B0.1  | Backend stack decision                 | P0  | Done        | Haneef | 2026-11-01 | ADR-004 accepted: FastAPI + PostgreSQL, separate repo    |
+| B0.2  | Service skeleton                       | P0  | Not started |        |            | Ready to start in haneefojay/amanah-api                  |
+| B0.3  | API contract (OpenAPI)                 | P0  | Not started |        |            | Draft frontend schemas exist in `src/lib/api/schemas.ts` |
+| B0.4  | Database and migrations                | P0  | Not started |        |            | PostgreSQL required                                      |
+| B0.5  | Test harness                           | P0  | Not started |        |            |                                                          |
+| B1.1  | Core schema                            | P0  | Not started |        |            |                                                          |
+| B1.2  | Append-only audit log                  | P0  | Not started |        |            |                                                          |
+| B1.3  | Demo seed data                         | P0  | Not started |        |            | Pilot organisation `[PLACEHOLDER]`                       |
+| B2.1  | Staff authentication                   | P0  | Not started |        |            |                                                          |
+| B2.2  | Authorisation and organisation scoping | P0  | Not started |        |            |                                                          |
+| B2.3  | Current user                           | P0  | Not started |        |            |                                                          |
+| B2.4  | Password reset                         | P2  | Not started |        |            |                                                          |
+| B3.1  | Organisation registration              | P0  | Not started |        |            |                                                          |
+| B3.2  | Verification documents                 | P0  | Not started |        |            |                                                          |
+| B3.3  | Verify or reject organisation          | P0  | Not started |        |            |                                                          |
+| B3.4  | Public organisation profile            | P1  | Not started |        |            |                                                          |
+| B4.1  | Draft campaigns and items              | P0  | Not started |        |            |                                                          |
+| B4.2  | Lifecycle state machine                | P0  | Not started |        |            |                                                          |
+| B4.3  | Immutability after first donation      | P0  | Not started |        |            | Purpose lock depends on D8                               |
+| B4.4  | Close early and end dates              | P0  | Not started |        |            | D10                                                      |
+| B4.5  | Completion                             | P1  | Not started |        |            |                                                          |
+| B5.1  | Campaign list                          | P0  | Not started |        |            |                                                          |
+| B5.2  | Campaign detail and accountability     | P0  | Not started |        |            |                                                          |
+| B5.3  | Live updates support                   | P0  | Not started |        |            |                                                          |
+| B6.1  | Checkout with reservations             | P0  | Not started |        |            | D1 = offer remaining, D6 = 15 min                        |
+| B6.2  | Reservation expiry                     | P0  | Not started |        |            |                                                          |
+| B6.3  | Concurrency test suite                 | P0  | Not started |        |            |                                                          |
+| B7.1  | Payment provider adapter               | P0  | Not started |        |            | D3 = Paystack test mode                                  |
+| B7.2  | Initialise transaction                 | P0  | Not started |        |            |                                                          |
+| B7.3  | Webhook confirmation                   | P0  | Not started |        |            |                                                          |
+| B7.4  | Excess handling                        | P0  | Not started |        |            | D9 ruling pending                                        |
+| B7.5  | Donation status                        | P0  | Not started |        |            |                                                          |
+| B8.1  | File storage                           | P0  | Not started |        |            |                                                          |
+| B8.2  | Evidence upload                        | P0  | Not started |        |            |                                                          |
+| B8.3  | Log expense                            | P0  | Not started |        |            |                                                          |
+| B8.4  | Item purchase status                   | P1  | Not started |        |            |                                                          |
+| B9.1  | Witness assignment                     | P0  | Not started |        |            | D2 = in-app                                              |
+| B9.2  | Delivery confirmation                  | P0  | Not started |        |            |                                                          |
+| B9.3  | Campaign updates                       | P1  | Not started |        |            |                                                          |
+| B10.1 | Organisation verification queue        | P0  | Not started |        |            |                                                          |
+| B10.2 | Campaign review queue                  | P0  | Not started |        |            |                                                          |
+| B10.3 | Excess resolution                      | P1  | Not started |        |            |                                                          |
+| B10.4 | Audit log query                        | P1  | Not started |        |            |                                                          |
+| B11.1 | Email adapter and receipt              | P1  | Not started |        |            | Gated by D11                                             |
+| B11.2 | Milestone notifications                | P2  | Not started |        |            | Gated by D11                                             |
+| B11.3 | Web push                               | P2  | Not started |        |            | Post-MVP                                                 |
+| B12.1 | Security hardening                     | P0  | Not started |        |            |                                                          |
+| B12.2 | Data protection (NDPA)                 | P0  | Not started |        |            |                                                          |
+| B12.3 | Observability                          | P1  | Not started |        |            |                                                          |
+| B12.4 | Deployment                             | P0  | Not started |        |            |                                                          |
 
 ---
 
 ## 5. Blockers
 
-| Item              | Blocked by               | Since      | Action needed          |
-| ----------------- | ------------------------ | ---------- | ---------------------- |
-| B0.1 and all of B | Backend stack not chosen | 2026-10-18 | Team to decide ADR-004 |
+| Item | Blocked by | Since | Action needed |
+| ---- | ---------- | ----- | ------------- |
+| none |            |       |               |
 
 ---
 
@@ -209,29 +211,31 @@ These are suggested dates. Adjust them here if the team changes them, and record
 
 Defaults from spec §11 are assumed until the team decides. When one is decided, record an ADR and update the affected items.
 
-| Decision                                | Default in use                                        | Affects                 |
-| --------------------------------------- | ----------------------------------------------------- | ----------------------- |
-| D1: over-remaining donation             | Offer the remaining amount                            | F4.3, B6.1              |
-| D2: witness channel                     | In-app                                                | F10, B9                 |
-| D3: payment provider                    | Paystack test mode                                    | B7                      |
-| D4: settlement                          | Record only                                           | none in MVP             |
-| D5: tech stack                          | Frontend decided (ADR-001). Backend pending (ADR-004) | B0                      |
-| D6: reservation TTL                     | 15 minutes                                            | B6.1, B6.2              |
-| D7: donor accounts                      | Guest only                                            | F4.2                    |
-| D8: proposed Sharia rules               | None until approved                                   | F4.2, F7.6, F11.2, B4.3 |
-| D9: scholarly advisor and excess ruling | `[PLACEHOLDER]`                                       | B7.4, F11.3             |
-| D10: campaign end dates                 | Optional                                              | F7.2, B4.4              |
-| D11: email receipts                     | `[PLACEHOLDER]`                                       | B11                     |
+| Decision                                | Default in use                              | Affects                 |
+| --------------------------------------- | ------------------------------------------- | ----------------------- |
+| D1: over-remaining donation             | Offer the remaining amount                  | F4.3, B6.1              |
+| D2: witness channel                     | In-app                                      | F10, B9                 |
+| D3: payment provider                    | Paystack test mode                          | B7                      |
+| D4: settlement                          | Record only                                 | none in MVP             |
+| D5: tech stack                          | Frontend ADR-001. Backend ADR-004 (FastAPI) | B0                      |
+| D6: reservation TTL                     | 15 minutes                                  | B6.1, B6.2              |
+| D7: donor accounts                      | Guest only                                  | F4.2                    |
+| D8: proposed Sharia rules               | None until approved                         | F4.2, F7.6, F11.2, B4.3 |
+| D9: scholarly advisor and excess ruling | `[PLACEHOLDER]`                             | B7.4, F11.3             |
+| D10: campaign end dates                 | Optional                                    | F7.2, B4.4              |
+| D11: email receipts                     | `[PLACEHOLDER]`                             | B11                     |
 
 ---
 
 ## 7. Index change log
 
-| Date       | Change                                                                                            | By     |
-| ---------- | ------------------------------------------------------------------------------------------------- | ------ |
-| 2026-10-25 | F0.6 in progress: site deployed on Vercel; same-origin mock API so public pages load there.       | Claude |
-| 2026-10-18 | F3.1 to F3.7 complete against mocks (accountability section, ADR-010). F4.1 and F9.2 notes added. | Claude |
-| 2026-10-18 | F1.1 to F1.6 complete (F1.4 mocked until auth). ADR-009 shadcn/ui.                                | Claude |
-| 2026-10-18 | F2.6 landing page built and tested; waiting on deployment.                                        | Claude |
-| 2026-10-18 | Added F2.6 public landing page (design approved). Raised F0.6 hosting to P0.                      | Claude |
-| 2026-10-18 | Roadmaps created from the MVP spec. F0.1 to F0.4 completed during environment setup.              | Claude |
+| Date       | Change                                                                                                         | By     |
+| ---------- | -------------------------------------------------------------------------------------------------------------- | ------ |
+| 2026-11-01 | B0.1 done: ADR-004 accepted (FastAPI + PostgreSQL, separate repository). B0.2 unblocked.                       | Claude |
+| 2026-11-01 | Backend repository haneefojay/amanah-api created with the spec, backend roadmap, index and ADR-011 to ADR-013. | Claude |
+| 2026-10-25 | F0.6 in progress: site deployed on Vercel; same-origin mock API so public pages load there.                    | Claude |
+| 2026-10-18 | F3.1 to F3.7 complete against mocks (accountability section, ADR-010). F4.1 and F9.2 notes added.              | Claude |
+| 2026-10-18 | F1.1 to F1.6 complete (F1.4 mocked until auth). ADR-009 shadcn/ui.                                             | Claude |
+| 2026-10-18 | F2.6 landing page built and tested; waiting on deployment.                                                     | Claude |
+| 2026-10-18 | Added F2.6 public landing page (design approved). Raised F0.6 hosting to P0.                                   | Claude |
+| 2026-10-18 | Roadmaps created from the MVP spec. F0.1 to F0.4 completed during environment setup.                           | Claude |

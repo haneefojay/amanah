@@ -2,20 +2,25 @@
 
 Every significant decision about Amanah (technology, architecture, process, or how a spec open decision was resolved) is recorded here as an ADR. ADRs are **append-only history**: never rewrite an accepted ADR. To change a decision, write a new ADR that supersedes the old one and update the old one's status to `Superseded by ADR-XXX`.
 
+ADR numbering is **shared with the backend repository** ([haneefojay/amanah-api](https://github.com/haneefojay/amanah-api)), which holds ADR-011 onwards for backend decisions. The next free number is **ADR-014**; check the backend index too before taking one.
+
 ## Index
 
-| ADR                                                   | Title                                                                          | Status   | Date       |
-| ----------------------------------------------------- | ------------------------------------------------------------------------------ | -------- | ---------- |
-| [ADR-001](./ADR-001-frontend-framework.md)            | Frontend framework: Next.js App Router with TypeScript                         | Accepted | 2026-10-18 |
-| [ADR-002](./ADR-002-pwa-strategy.md)                  | PWA strategy: Serwist service worker with network-only money data              | Accepted | 2026-10-18 |
-| [ADR-003](./ADR-003-frontend-backend-separation.md)   | Separate backend service and contract-first frontend development               | Accepted | 2026-10-18 |
-| [ADR-004](./ADR-004-backend-stack.md)                 | Backend technology stack                                                       | Proposed | 2026-10-18 |
-| [ADR-005](./ADR-005-frontend-testing-strategy.md)     | Frontend testing strategy                                                      | Accepted | 2026-10-18 |
-| [ADR-006](./ADR-006-frontend-supporting-libraries.md) | Frontend supporting libraries                                                  | Accepted | 2026-10-18 |
-| [ADR-007](./ADR-007-typography-and-fonts.md)          | Typography: self-hosted Schibsted Grotesk, plus Reem Kufi cut down to one word | Accepted | 2026-10-18 |
-| [ADR-008](./ADR-008-hosting-vercel.md)                | Frontend hosting on Vercel                                                     | Accepted | 2026-10-18 |
-| [ADR-009](./ADR-009-ui-components-shadcn.md)          | UI components on shadcn/ui                                                     | Accepted | 2026-10-18 |
-| [ADR-010](./ADR-010-public-accountability-data.md)    | Public accountability data and live refresh                                    | Accepted | 2026-10-18 |
+| ADR                                                                                                          | Title                                                                          | Status   | Date       |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | -------- | ---------- |
+| [ADR-001](./ADR-001-frontend-framework.md)                                                                   | Frontend framework: Next.js App Router with TypeScript                         | Accepted | 2026-10-18 |
+| [ADR-002](./ADR-002-pwa-strategy.md)                                                                         | PWA strategy: Serwist service worker with network-only money data              | Accepted | 2026-10-18 |
+| [ADR-003](./ADR-003-frontend-backend-separation.md)                                                          | Separate backend service and contract-first frontend development               | Accepted | 2026-10-18 |
+| [ADR-004](./ADR-004-backend-stack.md)                                                                        | Backend technology stack: FastAPI on PostgreSQL, separate repository           | Accepted | 2026-11-01 |
+| [ADR-005](./ADR-005-frontend-testing-strategy.md)                                                            | Frontend testing strategy                                                      | Accepted | 2026-10-18 |
+| [ADR-006](./ADR-006-frontend-supporting-libraries.md)                                                        | Frontend supporting libraries                                                  | Accepted | 2026-10-18 |
+| [ADR-007](./ADR-007-typography-and-fonts.md)                                                                 | Typography: self-hosted Schibsted Grotesk, plus Reem Kufi cut down to one word | Accepted | 2026-10-18 |
+| [ADR-008](./ADR-008-hosting-vercel.md)                                                                       | Frontend hosting on Vercel                                                     | Accepted | 2026-10-18 |
+| [ADR-009](./ADR-009-ui-components-shadcn.md)                                                                 | UI components on shadcn/ui                                                     | Accepted | 2026-10-18 |
+| [ADR-010](./ADR-010-public-accountability-data.md)                                                           | Public accountability data and live refresh                                    | Accepted | 2026-10-18 |
+| [ADR-011](https://github.com/haneefojay/amanah-api/blob/main/docs/decisions/ADR-011-authentication.md)       | Hand-written authentication with server-side sessions (backend repository)     | Accepted | 2026-11-01 |
+| [ADR-012](https://github.com/haneefojay/amanah-api/blob/main/docs/decisions/ADR-012-hosting-railway.md)      | Backend hosting on Railway, moving to a VPS later (backend repository)         | Accepted | 2026-11-01 |
+| [ADR-013](https://github.com/haneefojay/amanah-api/blob/main/docs/decisions/ADR-013-object-storage-minio.md) | Object storage on MinIO (backend repository)                                   | Accepted | 2026-11-01 |
 
 ## How to add an ADR
 

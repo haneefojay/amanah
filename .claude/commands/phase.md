@@ -15,7 +15,7 @@ This command has three stages: **1. Read**, **2. Plan and ask**, **3. Build afte
 
 - Valid forms: `F<n>` (a whole frontend phase, e.g. `F2`), `F<n>.<m>` (one frontend item, e.g. `F2.3`), and the same with `B` for the backend roadmap.
 - If `$ARGUMENTS` is empty or does not match one of these, stop and ask which phase or item to start. Do nothing else.
-- `F…` items live in `docs/roadmap/FRONTEND_ROADMAP.md`; `B…` items live in `docs/roadmap/BACKEND_ROADMAP.md`. This repository is the frontend. For a `B…` argument, check ADR-004 (backend stack) first: if it is still `Proposed`, say the backend stack is undecided, and ask how to proceed before planning.
+- `F…` items live in `docs/roadmap/FRONTEND_ROADMAP.md`. This repository is the frontend. `B…` items belong to the backend repository (https://github.com/haneefojay/amanah-api); for a `B…` argument, say so and stop. Work on it starts there with its own `/phase` command.
 
 ## 1. Read (no edits yet)
 

@@ -38,18 +38,18 @@ Entry for the **AMETTSA Inter-Varsity Innovation Challenge** (AMETTSA 5.0 Annual
 ```
 ┌──────────────────────────────┐        HTTPS / JSON        ┌───────────────────────────┐
 │  Frontend (this repository)  │  ───────────────────────►  │  Backend API service      │
-│  Next.js 16 App Router, PWA  │   src/lib/api + Zod        │  Stack: pending ADR-004   │
-│  Tailwind · TanStack Query   │  ◄───────────────────────  │  PostgreSQL · Paystack    │
+│  Next.js 16 App Router, PWA  │   src/lib/api + Zod        │  FastAPI (ADR-004)        │
+│  Tailwind · TanStack Query   │  ◄───────────────────────  │  PostgreSQL · MinIO       │
 └──────────────────────────────┘                            └───────────────────────────┘
           ▲ dev and tests: MSW mock API (npm run mock:api)
 ```
 
 ## Repositories
 
-| Part                 | Repository                                    |
-| -------------------- | --------------------------------------------- |
-| Frontend (this repo) | https://github.com/haneefojay/amanah-frontend |
-| Backend              | To be created after ADR-004                   |
+| Part                 | Repository                               |
+| -------------------- | ---------------------------------------- |
+| Frontend (this repo) | https://github.com/haneefojay/amanah     |
+| Backend (FastAPI)    | https://github.com/haneefojay/amanah-api |
 
 ## Where things live
 

@@ -36,7 +36,7 @@ Detailed procedures live in the reference files. Load the one you need:
 7. **Donor email and phone never appear on public pages.**
 8. **Nothing is done without tests** — the ones listed in the roadmap item, plus the Global Definition of Done. Mobile (360px) first.
 9. **Commits and PRs carry no AI attribution** (no `Co-Authored-By` AI trailers, no "Generated with" lines). Commit as the configured git user.
-10. **Stop and ask** before touching an open decision (spec §11 D1–D11, ADR-004), adding a runtime dependency not covered by an ADR, or doing anything hard to reverse.
+10. **Stop and ask** before touching an open decision (spec §11 D1–D11), adding a runtime dependency not covered by an ADR, or doing anything hard to reverse.
 
 ## Finish line
 

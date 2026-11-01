@@ -1,6 +1,6 @@
 # Amanah: frontend
 
-Transparent Islamic donation platform. **This repository is the Next.js PWA frontend.** The backend is a separate service (see `docs/decisions/ADR-003` and `ADR-004`).
+Transparent Islamic donation platform. **This repository is the Next.js PWA frontend.** The backend is a separate FastAPI service in its own repository, [haneefojay/amanah-api](https://github.com/haneefojay/amanah-api) (see `docs/decisions/ADR-003` and `ADR-004`).
 
 Start with [`PROJECT.md`](./PROJECT.md) for the overview and [`docs/roadmap/ROADMAP_INDEX.md`](docs/roadmap/ROADMAP_INDEX.md) for status.
 
