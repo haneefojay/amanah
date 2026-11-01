@@ -17,7 +17,8 @@
     "check:terms": "node scripts/check-forbidden-terms.mjs",
     "icons": "node scripts/generate-icons.mjs",
     "verify": "npm run format:check && npm run lint && npm run typecheck && npm run check:terms && npm run test && npm run build",
-    "screenshots": "cross-env SCREENSHOTS=1 playwright test tests/e2e/screenshots.spec.ts --project=desktop-chrome"
+    "screenshots": "cross-env SCREENSHOTS=1 playwright test tests/e2e/screenshots.spec.ts --project=desktop-chrome",
+    "api:types": "node scripts/generate-api-types.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.2",
@@ -55,6 +56,7 @@
     "eslint-config-next": "16.4.2",
     "jsdom": "^29.1.1",
     "msw": "^3.0.3",
+    "openapi-typescript": "^7.13.0",
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "serwist": "^9.5.13",
